@@ -11,7 +11,7 @@ import img1 from "../../assets/images/lampA.png";
 import img2 from "../../assets/images/lampB.png";
 
 
-const Home = () => {
+const Home = ({setState}) => {
     const [products, setProducts] = useState([])
 
   useLayoutEffect(() => {
@@ -40,7 +40,12 @@ const Home = () => {
                 <CardNew products={products} onOpen={openModal}/>
             </div>
             <Modal visible={toggle} onOk={() => console.log('fun')} onCancel={closeModal} className={styles.modal}>
-                <ModalCard setClose={() => setModal(null)} selectedProduct={products[productIndex]} products={products}/>
+                <ModalCard 
+                setClose={() => setModal(null)}
+                 selectedProduct={products[productIndex]} 
+                 products={products}
+                 setState={setState}
+                 />
             </Modal>
         </Container>
     );

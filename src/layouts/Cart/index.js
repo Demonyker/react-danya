@@ -4,13 +4,13 @@ import styles from "./styles.module.scss";
 import Container from "@material-ui/core/Container";
 
 
-const Cart = () => {
+const Cart = ({cart}) => {
     return (
         <div className={styles.container}>
             <Container>
                 <div className={styles.goods}>
                     <div className={styles.left}>
-
+                    {cart.map(item => <div>{`${item.title},  ${item.number} - kolichestvo`}</div>)}
                     </div>
                     <div className={styles.deleted}>
                         <p>button</p>

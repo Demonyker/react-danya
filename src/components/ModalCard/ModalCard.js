@@ -6,7 +6,6 @@ import Local from "../LocalStorage/index"
 
 
 const ModalCard = (props) => {
-    console.log(12)
     return (
         <div>
             <div className={styles.upper}>
@@ -24,7 +23,7 @@ const ModalCard = (props) => {
                         <a>SKU: BLE1000BLU</a>
                     </div>
                     <div className={styles.buyForm}>
-                        <Local products={props.products} />
+                        <Local product={props.selectedProduct} setState={props.setState} />
                     </div>
                 </div>
             </div>

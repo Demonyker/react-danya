@@ -1,4 +1,4 @@
-import React,{useLayoutEffect} from "react";
+import React,{useLayoutEffect, useState} from "react";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 import Home from './layouts/Home'
@@ -37,16 +37,21 @@ export default function BasicExample() {
 
 
     },[])
+
+    const [state, setState] = useState({
+        cart: [],
+    })
+    const { cart } = state;
     return (
         <Router>
             <div>
                 <NavbarNew/>
                 <Switch>
                     <Route exact path="/">
-                        <Home />
+                        <Home setState={setState} />
                     </Route>
                     <Route path="/cart">
-                        <Cart />
+                        <Cart cart={cart} />
                     </Route>
                     <Route path="/signIn">
                         <SignIn />
