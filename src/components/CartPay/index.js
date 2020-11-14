@@ -17,23 +17,14 @@ const CartPay = ({cart,setState}) => {
   //
   // })}
 
+  const subTotal = cart.map(item => item.price * item.number).reduce((acc, item) => { return acc + item }, 0)
   return (
     <div className={styles.container}>
       <div className={styles.goods}>
-        {cart.map(item => {
-          return (
-            <>
-              <div className={styles.left}>
-                  <div className={styles.cardPrice}>
-                    <a>Sub total:</a>{`$${item.price*item.number}`}
+      <div className={styles.cardPrice}>
+                    <a>Sub total:</a>{`$${subTotal}`}
                   </div>
-              </div>
-              <div className={styles.deleted}>
-                <button type="button" onClick={() => handleClick(item.id)}>x</button>
-              </div>
-            </>
-          )
-        })}
+
       </div>
     </div>
   );
